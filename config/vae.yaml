@@ -1,0 +1,34 @@
+model_params:
+  model_name: "vanilla_vae_pred"
+  cnn_hidden: [128, 256]
+  lstm_hidden: 256
+  latent_dim: 128
+
+data_params:
+  data_name: "protagonist_based_coord_trans_pred"
+  data: "/media/felan/G-DRIVE/AR-LABO/P45_S2_C1/trajectory"
+  data_path: "/media/felan/G-DRIVE/Train/7joints/IR"
+  protagonist: 1
+  mice_num: 4
+  bodypart: ['nose', 'left-ear', 'right-ear', 'marker', 'back1', 'back2', 'tail']
+  # ['nose', 'left-ear', 'right-ear', 'marker', 'back1', 'back2', 'tail']
+  zone_radius: 180.0
+  frame_len: 20
+  batch_size: 1024
+
+exp_params:
+  LR: 0.005
+  weight_decay: 0.0
+  scheduler_gamma: 0.95
+  kld_weight: 0.00025
+  manual_seed: 2024
+
+# device change to one when predict!!
+trainer_params:
+  devices: [0]
+  max_epochs: 20
+
+logging_params:
+  save_dir: "model/model_files"
+  name: "VanillaVAEPred"
+  version: 5
