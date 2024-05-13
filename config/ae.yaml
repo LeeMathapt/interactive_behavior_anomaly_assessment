@@ -1,0 +1,32 @@
+model_params:
+  model_name: "vanilla_ae_pred"
+  cnn_hidden: [128, 256]
+  lstm_hidden: 256
+
+data_params:
+  data_name: "protagonist_based_coord_trans_pred"
+  data: "/media/felan/G-DRIVE/AR-LABO/P46_S1_C2/trajectory"
+  data_path: "/media/felan/G-DRIVE/Train/3joints/RE"
+  protagonist: 10
+  mice_num: 4
+  bodypart: ['nose', 'marker', 'tail']
+  zone_radius: 180.0
+  frame_len: 10
+  batch_size: 1024
+
+exp_params:
+  LR: 0.005
+  weight_decay: 0.0
+  scheduler_gamma: 0.95
+  kld_weight: 0.00025
+  manual_seed: 2024
+
+# device change to one when predict!!
+trainer_params:
+  devices: [0]
+  max_epochs: 20
+
+logging_params:
+  save_dir: "model/model_files"
+  name: "VanillaAEPred"
+  version: 7
