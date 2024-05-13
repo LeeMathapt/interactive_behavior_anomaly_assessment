@@ -13,7 +13,7 @@ CNN increase the person dim then 2D CNN on each frame.
 import torch
 from torch.nn import functional as F
 
-class VanillaAEV2(torch.nn.Module):
+class VanillaAE(torch.nn.Module):
     """
     B: Batch
     C: Channels
